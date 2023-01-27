@@ -44,7 +44,7 @@ class TaskController extends Controller
 
     public function update(Request $request, $id){
         $task = DB::table('tasks')->where('id', $id)->update([
-            'task' => $request->task,
+            'tasks' => $request->task,
             'user' => $request->user
         ]);
         return 'Success';
