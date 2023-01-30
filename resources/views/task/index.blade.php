@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('main')
-<div class="border rounded mt-5 mx-auto d-flex flex-column align-items-stretch bg-white" style="width: 380px;">
+<div class="border rounded mt-5 mx-auto d-flex flex-column align-items-stretch bg-white" style="width: 400px;">
         <div class="d-flex justify-content-between flex-shrink-0 p-3 link-dark  border-bottom">
             <span class="fs-5 fw-semibold">Task Lists</span>
             <span class="btn btn-sm btn-primary">add</span>
@@ -23,6 +23,6 @@
       @endforeach
 
       <br>
-      {{$data->links('pagination::bootstrap-4')}}
+      {{$data->links('pagination::bootstrap-5')}}
     </div>
 @endsection
