@@ -37,7 +37,7 @@ class TaskController extends Controller
             'user' => $request->user
         ]);
 
-        return 'Success';
+        return redirect('/tasks');
     }
 
     public function edit($id){
