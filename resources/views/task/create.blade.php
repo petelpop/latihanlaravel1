@@ -17,7 +17,7 @@
             @csrf
               <div class="mb-3">
                   <label for="" class="form-label">User</label>
-                  <input name="user" type="text" class="form-control">
+                  <input name="user" type="text" class="form-control" value="{{ old('user') }}">
                   @error('user')
                       <span class="text-danger">
                         {{ $message }}
@@ -26,7 +26,7 @@
               </div>
               <div class="mb-3">
                   <label for="" class="form-label">Task</label>
-                  <textarea name="tasks" class="form-control" id="" rows="3"></textarea>
+                  <textarea name="tasks" class="form-control" id="" rows="3">{{ old('task') }}</textarea>
                   @error('tasks')
                   <span class="text-danger">
                     {{ $message }}
