@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class TaskRequest extends FormRequest
 {
@@ -23,16 +24,23 @@ class TaskRequest extends FormRequest
      */
     public function rules()
     {
+
+        $rule_task_unique = Rule::unique('tasks', 'tasks');
+        if ($this-> method() !== 'POST') {
+            $rule_task_unique->ignore($this->route()->parameter('id'));
+        }
+
         return [
-            'tasks' => ['required'],
+            // 'tasks' => ['required', 'unique:Tasks'],
+            'tasks' => ['required', $rule_task_unique],
             'user' => ['required']
         ];
     }
 
     public function messages(){
         return [
-            'required' => 'isian :attribute harus diisi',
-            'user.required' => 'nama pengguna harus diisi'
+            'tasks.required' => 'task harus diisi!',
+            'user.required' => 'nama pengguna harus diisi!'
         ];
     }
 }
