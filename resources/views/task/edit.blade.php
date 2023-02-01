@@ -19,10 +19,20 @@
               <div class="mb-3">
                   <label for="" class="form-label">User</label>
                   <input name="user" type="text" class="form-control" value="{{$task->user}}">
+                  @error('user')
+                  <span class="text-danger">
+                    {{ $message }}
+                  </span>
+              @enderror
               </div>
               <div class="mb-3">
                   <label for="" class="form-label">Task</label>
                   <textarea name="tasks" class="form-control" id="" rows="3">{{$task->tasks}}</textarea>
+                  @error('tasks')
+                  <span class="text-danger">
+                    {{ $message }}
+                  </span>
+              @enderror
               </div>
               <button type="submit" class="btn btn-primary">Edit</button>
           </form>
